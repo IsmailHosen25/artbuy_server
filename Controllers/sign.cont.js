@@ -1,14 +1,14 @@
-const usermodel =require("../models/user.mod")
+const user =require("../models/user.mod")
 const bcrypt= require("bcrypt")
 const jwt=require("jsonwebtoken")
 const sign = async(req,res)=>{
 try{
-    const validuser=await usermodel.findOne({email:req.body.email})
+    const validuser=await user.findOne({email:req.body.email})
     if(validuser===null){
-        const validusername=await usermodel.findOne({username:req.body.username})
+        const validusername=await user.findOne({username:req.body.username})
         if(validusername===null){
             const hashedpassword=await bcrypt.hash(req.body.password,10)
-            const newuser=new usermodel({
+            const newuser=new user({
                 username:req.body.username,
                 email:req.body.email,
                 password:hashedpassword,
