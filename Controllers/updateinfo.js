@@ -6,11 +6,13 @@ const updateinfo=async(req,res)=>{
             name:req.body.name,
             mobile:req.body.mobile,
             address:req.body.address,
-            bio:req.body.bio
+            bio:req.body.bio,
+            socialmedia:req.body.socialmedia
+
         }},{
             new:true
         })
-    res.json({"message":updateuser})
+    res.json({"request":"Accepted"})
   }catch(e){
     res.json({"error":e.message})
   }

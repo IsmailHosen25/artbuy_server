@@ -17,7 +17,8 @@ const getuser=async(req,res)=>{
                     "address": validuser.address,
                     "bio": validuser.bio,
                     "mobile": validuser.mobile,
-                    "name": validuser.name
+                    "name": validuser.name,
+                    "socialmedia":validuser.socialmedia
                 }
         })
         }

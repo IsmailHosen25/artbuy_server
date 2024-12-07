@@ -33,7 +33,19 @@ const userSchema=mongoose.Schema({
        bio:{
         type:String,
         default: ''
-       }
+       },
+       socialmedia:[
+              {
+               name:{
+                     type:String,
+                     default:''
+               },
+               url:{
+                     type:String,
+                     default:""
+               }
+              }
+       ]
 })
 const user=new mongoose.model("users",userSchema)
 module.exports=user
