@@ -8,20 +8,25 @@ const getuser=async(req,res)=>{
             })
         }
         else{
-            res.json({
-                "request":"Accepted",
-                "data":{
-                    "username": validuser.username,
-                    "email": validuser.email,
-                    "usertype": validuser.usertype,
-                    "address": validuser.address,
-                    "bio": validuser.bio,
-                    "mobile": validuser.mobile,
-                    "name": validuser.name,
-                    "socialmedia":validuser.socialmedia
-                }
-        })
-        }
+            if(req.params.username===req.username){
+                res.json({
+                    "request":"Accepted",
+                    "data":{
+                        "username": validuser.username,
+                        "email": validuser.email,
+                        "usertype": validuser.usertype,
+                        "address": validuser.address,
+                        "bio": validuser.bio,
+                        "mobile": validuser.mobile,
+                        "name": validuser.name,
+                        "socialmedia":validuser.socialmedia
+                    }
+            })
+            }
+            else{
+                res.json({"request":"token error"})
+            }
+            }
     }catch(e){
         res.json({"error":e.message})
     }
