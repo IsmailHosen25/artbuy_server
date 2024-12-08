@@ -34,6 +34,18 @@ const userSchema=mongoose.Schema({
         type:String,
         default: ''
        },
+       file:{
+            path:{
+                type:String,
+                default:""
+            }
+            ,
+            filename:{
+                    type:String,
+                    default:""
+                }
+    
+        },
        socialmedia:[
               {
                name:{

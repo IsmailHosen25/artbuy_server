@@ -19,7 +19,8 @@ const getuser=async(req,res)=>{
                         "bio": validuser.bio,
                         "mobile": validuser.mobile,
                         "name": validuser.name,
-                        "socialmedia":validuser.socialmedia
+                        "socialmedia":validuser.socialmedia,
+                        "file":validuser.file
                     }
             })
             }
