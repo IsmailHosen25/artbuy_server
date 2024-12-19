@@ -16,7 +16,12 @@ try{
                 usertype:req.body.usertype
             })
             await newuser.save()
-            const token=jwt.sign(payload,process.env.JWT,{expiresIn:"4hr"})
+            const payload={
+                userid:newuser.id,
+                username:newuser.username,
+                usertype:newuser.usertype
+             }
+            const token=jwt.sign(payload,process.env.JWT,{expiresIn:"2d"})
                         res.cookie("token",token)
                         .json({
                            "request":"Accepted",
@@ -28,13 +33,13 @@ try{
         }
         else{
             res.json({
-                "message":"User name already exit"
+                "request":"User name already exist"
             })
         }
     }
     else{
         res.json({
-            "message":"User already exit"
+            "request":"User already exist"
         })
     }
 }catch(e){

@@ -17,27 +17,30 @@ const artSchema=mongoose.Schema({
         required:true
     },
     category:{
+        type:String,
+        required:true
 
     },
     price:{
+        type:Number,
+        required:true
 
     },
     available:{
+        type:String,
+        required:true
 
     },
     about:{
+        type:String,
+        required:true
 
     },
     userid:{
         type:mongoose.Types.ObjectId,
         ref:"users"
     },
-    likes:{
-        email:{
-            type:String,
-            default:""
-        }
-    }
+    likes:[]
 })
 const arts=new mongoose.model("arts",artSchema)
 module.exports=arts

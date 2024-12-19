@@ -4,6 +4,7 @@ const jwtcheck=(req,res,next)=>{
     try{
         const token=req.cookies.token
         const decode=jwt.verify(token,process.env.JWT)
+        req.userid=decode.userid
         req.username=decode.username
         req.usertype=decode.usertype
         next()

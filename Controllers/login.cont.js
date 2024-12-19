@@ -14,14 +14,16 @@ const login=async(req,res)=>{
          const passwordvalid= await bcrypt.compare(req.body.password,validuser.password)
          if(passwordvalid){
             const payload={
+               userid:validuser.id,
                username:validuser.username,
                usertype:validuser.usertype
             }
-            const token=jwt.sign(payload,process.env.JWT,{expiresIn:"4hr"})
+            const token=jwt.sign(payload,process.env.JWT,{expiresIn:"2d"})
             res.cookie("token",token)
             .json({
                "request":"Accepted",
                "data":{
+                    "userid":validuser.id,
                     "username":validuser.username,
                     "usertype":validuser.usertype
                 }
