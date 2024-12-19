@@ -1,6 +1,7 @@
 const user =require("../models/user.mod")
 const bcrypt= require("bcrypt")
 const jwt=require("jsonwebtoken")
+require("dotenv").config()
 const sign = async(req,res)=>{
 try{
     const validuser=await user.findOne({email:req.body.email})
@@ -15,13 +16,15 @@ try{
                 usertype:req.body.usertype
             })
             await newuser.save()
-            res.json({
-                "message":"Accepted",
-                "data":{
-                    "username":req.body.username,
-                    "usertype":req.body.usertype
-                }
-            })
+            const token=jwt.sign(payload,process.env.JWT,{expiresIn:"4hr"})
+                        res.cookie("token",token)
+                        .json({
+                           "request":"Accepted",
+                           "data":{
+                                "username":req.body.username,
+                                "usertype":req.body.usertype
+                            }
+                        })
         }
         else{
             res.json({
