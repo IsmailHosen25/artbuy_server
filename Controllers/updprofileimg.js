@@ -9,14 +9,16 @@ const updprofileimg=async (req,res)=>{
         "request":"token expired"
       })
     }else{
-        unlink(
-            `I:\\10th semester\\CSC455(WA)\\Artbuy\\artbuy_server\\images\\${validuser.file.filename}`,(err)=>{
-                
-                if(err){
-                    res.json({"request":"error found"})
+        if(validuser.file.filename !=""){
+            unlink(
+                `I:\\10th semester\\CSC455(WA)\\Artbuy\\artbuy_server\\images\\${validuser.file.filename}`,(err)=>{
+                    
+                    if(err){
+                        res.json({"request":"error found"})
+                    }
                 }
-            }
-        )
+            )
+        }
         const updateuser=await user.findOneAndUpdate({username:req.username},{
             $set:{
                 file:{

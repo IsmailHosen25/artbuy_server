@@ -36,6 +36,10 @@ const artSchema=mongoose.Schema({
         required:true
 
     },
+    quantity:{
+        type:Number,
+        default:1
+    },
     userid:{
         type:mongoose.Types.ObjectId,
         ref:"users"
