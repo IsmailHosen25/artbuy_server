@@ -12,20 +12,57 @@ const orderSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    arts:[ 
-        {
-
-        art:{
-        quntity:{
-           type:Number,
-           required:true
-        },
-        artid:{
-        type:mongoose.Types.ObjectId,
-        ref:"arts"
-        }
+    status:{
+        type:String,
+        required:true
+    },
+    file:{
+            path:{
+                type:String,
+                required:true
             }
-
-        }
-    ]
+            ,
+            filename:{
+                    type:String,
+                    required:true
+                }
+    
+        },
+    name:{
+            type:String,
+            required:true
+        },
+    category:{
+            type:String,
+            required:true
+    
+        },
+    price:{
+            type:Number,
+            required:true
+    
+        },
+    available:{
+            type:String,
+            required:true
+    
+        },
+    about:{
+            type:String,
+            required:true
+    
+        },
+    quantity:{
+            type:Number,
+            default:1
+        },
+    userid:{
+            type:mongoose.Types.ObjectId,
+            ref:"users"
+        },
+    likes:[]
+    
+       
 })
+const order=new mongoose.model("orders",orderSchema)
+module.exports=order
