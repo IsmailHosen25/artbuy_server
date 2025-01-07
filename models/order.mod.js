@@ -59,10 +59,7 @@ const orderSchema=mongoose.Schema({
     userid:{
             type:mongoose.Types.ObjectId,
             ref:"users"
-        },
-    likes:[]
-    
-       
+        }
 })
 const order=new mongoose.model("orders",orderSchema)
 module.exports=order
