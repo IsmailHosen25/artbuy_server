@@ -20,12 +20,11 @@ const addorder =async(req,res)=>{
             available:req.body.arts[i].available,
             category:req.body.arts[i].category,
             about:req.body.arts[i].about,
-            userid:req.body.arts[i]._id,
+            userid:req.body.arts[i].userid._id,
             quantity:req.body.arts[i].quantity
 
         })
         await new_order.save()
-        
       }
      res.json({
         "request":"Accepted"
