@@ -34,7 +34,6 @@
 - Install dependencies and start the server (uses `nodemon`):
 
 ```pwsh
-cd "i:\10th semester\CSC455(WA)\Artbuy\artbuy_server"
 npm install
 npm start
 ```
@@ -45,7 +44,6 @@ npm start
 - Install dependencies and start the client (Vite dev server):
 
 ```pwsh
-cd "i:\10th semester\CSC455(WA)\Artbuy\Client"
 npm install
 npm run dev
 ```
